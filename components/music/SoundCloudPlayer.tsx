@@ -31,7 +31,7 @@ export function SoundCloudPlayer({ widgetRef }: SoundCloudPlayerProps) {
           show_user: true,
           visual: true,
         })}
-        className="block w-full relative z-10"
+        className="block w-full h-[340px] sm:h-[500px] relative z-10"
       />
     </FadeInUp>
   );

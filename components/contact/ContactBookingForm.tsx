@@ -6,10 +6,10 @@ export function ContactBookingForm() {
       xOffset={40}
       duration={0.8}
       delay={0.2}
-      className="bg-[#111] border border-[rgba(255,255,255,0.05)] rounded-[24px] p-8"
+      className="bg-[#111] border border-[rgba(255,255,255,0.05)] rounded-[20px] sm:rounded-[24px] p-5 sm:p-8"
     >
       <h2
-        className="text-[28px] text-white uppercase mb-6"
+        className="text-[24px] sm:text-[28px] text-white uppercase mb-6"
         style={{ fontFamily: "var(--font-bebas)", letterSpacing: "1px" }}
       >
         Send a Booking Inquiry

@@ -29,7 +29,7 @@ export function ContactInfo() {
     <SlideIn xOffset={-40} duration={0.8} className="space-y-8">
       <div>
         <p
-          className="text-[#ff003f] tracking-[3px] uppercase text-xs mb-4"
+          className="text-[#ff003f] tracking-[2.5px] sm:tracking-[3px] uppercase text-[11px] sm:text-xs mb-4"
           style={{ fontFamily: "var(--font-space)", fontWeight: 700 }}
         >
           Bookings · DJ Lidan
@@ -41,7 +41,7 @@ export function ContactInfo() {
           Book DJ Lidan
         </h1>
         <p
-          className="text-[17px] leading-[30px] text-[#99a1af]"
+          className="text-[15px] sm:text-[17px] leading-[26px] sm:leading-[30px] text-[#99a1af]"
           style={{ fontFamily: "var(--font-space)", fontWeight: 400 }}
         >
           DJ Lidan is Sri Lanka&apos;s premier progressive and electronic music DJ, based in Colombo and
@@ -89,7 +89,7 @@ export function ContactInfo() {
             />
           </svg>
           <span
-            className="text-[18px] text-white group-hover:text-[#ff003f] transition-colors duration-300"
+            className="text-[16px] sm:text-[18px] text-white group-hover:text-[#ff003f] transition-colors duration-300 break-all"
             style={{ fontFamily: "var(--font-space)", fontWeight: 400 }}
           >
             booking@lidanmusic.com

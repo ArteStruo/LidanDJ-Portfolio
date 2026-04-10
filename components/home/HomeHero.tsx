@@ -15,11 +15,11 @@ export function HomeHero({ tags }: HomeHeroProps) {
         <div className="absolute inset-0 bg-[rgba(255,0,63,0.04)]" />
       </div>
 
-      <div className="relative flex items-center justify-center min-h-screen px-6">
-        <div className="max-w-[900px] text-center pt-20">
+      <div className="relative flex items-center justify-center min-h-screen px-4 sm:px-6">
+        <div className="max-w-[900px] text-center pt-24 sm:pt-20">
           <FadeInUp
             delay={0.1}
-            className="text-[#ff003f] tracking-[4px] uppercase mb-6 text-sm"
+            className="text-[#ff003f] tracking-[3px] sm:tracking-[4px] uppercase mb-5 sm:mb-6 text-[11px] sm:text-sm"
             style={{ fontFamily: "var(--font-space)", fontWeight: 700 }}
           >
             DJ Lidan · Colombo, Sri Lanka
@@ -27,13 +27,13 @@ export function HomeHero({ tags }: HomeHeroProps) {
 
           <FadeInUp delay={0.2} duration={0.8} yOffset={40}>
             <h1
-              className="text-[clamp(72px,12vw,128px)] leading-[0.92] tracking-[-2px] text-white uppercase"
+              className="text-[clamp(46px,12vw,128px)] leading-[0.92] tracking-[-1px] sm:tracking-[-2px] text-white uppercase"
               style={{ fontFamily: "var(--font-bebas)" }}
             >
               Deep &amp;
             </h1>
             <h1
-              className="text-[clamp(72px,12vw,128px)] leading-[0.92] tracking-[-2px] uppercase bg-clip-text text-transparent"
+              className="text-[clamp(46px,12vw,128px)] leading-[0.92] tracking-[-1px] sm:tracking-[-2px] uppercase bg-clip-text text-transparent"
               style={{
                 fontFamily: "var(--font-bebas)",
                 backgroundImage: "linear-gradient(90deg, rgb(255, 0, 63) 0%, rgb(255, 77, 121) 100%)",
@@ -43,15 +43,15 @@ export function HomeHero({ tags }: HomeHeroProps) {
             </h1>
           </FadeInUp>
 
-          <FadeInUp delay={0.5} className="mt-10 mb-14 max-w-[600px] mx-auto">
+          <FadeInUp delay={0.5} className="mt-8 sm:mt-10 mb-10 sm:mb-14 max-w-[600px] mx-auto">
             <p
-              className="text-[20px] leading-[32px] text-[#d1d5dc] mb-3"
+              className="text-[17px] sm:text-[20px] leading-[28px] sm:leading-[32px] text-[#d1d5dc] mb-3"
               style={{ fontFamily: "var(--font-space)", fontWeight: 300 }}
             >
               Sri Lanka&apos;s foremost progressive and electronic music DJ.
             </p>
             <p
-              className="text-[16px] leading-[26px] text-[#99a1af]"
+              className="text-[14px] sm:text-[16px] leading-[24px] sm:leading-[26px] text-[#99a1af]"
               style={{ fontFamily: "var(--font-space)", fontWeight: 400 }}
             >
               Crafting hypnotic underground journeys from the heart of Colombo — deep progressive house,
@@ -59,10 +59,10 @@ export function HomeHero({ tags }: HomeHeroProps) {
             </p>
           </FadeInUp>
 
-          <FadeInUp delay={0.7} className="flex items-center justify-center gap-4 flex-wrap">
+          <FadeInUp delay={0.7} className="flex items-center justify-center gap-3 sm:gap-4 flex-wrap">
             <Link
               href="/music"
-              className="bg-[#ff003f] h-[54px] px-8 rounded-full flex items-center gap-3 transition-transform duration-300 hover:scale-105"
+              className="bg-[#ff003f] h-[50px] sm:h-[54px] px-6 sm:px-8 rounded-full flex items-center justify-center gap-3 transition-transform duration-300 hover:scale-105 w-full sm:w-auto"
             >
               <svg className="size-5" fill="none" viewBox="0 0 20 20">
                 <path d="M9.5 4.16667V15.8333M9.5 15.8333C9.5 17.2141 8.38071 18.3333 7 18.3333C5.61929 18.3333 4.5 17.2141 4.5 15.8333C4.5 14.4526 5.61929 13.3333 7 13.3333C8.38071 13.3333 9.5 14.4526 9.5 15.8333ZM15.5 14.1667V4.16667M15.5 14.1667C15.5 15.5474 14.3807 16.6667 13 16.6667C11.6193 16.6667 10.5 15.5474 10.5 14.1667C10.5 12.7859 11.6193 11.6667 13 11.6667C14.3807 11.6667 15.5 12.7859 15.5 14.1667Z" stroke="white" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
@@ -77,7 +77,7 @@ export function HomeHero({ tags }: HomeHeroProps) {
 
             <a
               href="#events"
-              className="h-[54px] px-8 rounded-full flex items-center border border-[rgba(255,255,255,0.2)] transition-all duration-300 hover:border-[rgba(255,255,255,0.4)] hover:bg-[rgba(255,255,255,0.05)]"
+              className="h-[50px] sm:h-[54px] px-6 sm:px-8 rounded-full flex items-center justify-center border border-[rgba(255,255,255,0.2)] transition-all duration-300 hover:border-[rgba(255,255,255,0.4)] hover:bg-[rgba(255,255,255,0.05)] w-full sm:w-auto"
             >
               <span
                 className="text-[14px] tracking-[1.6px] uppercase text-white"
@@ -88,11 +88,11 @@ export function HomeHero({ tags }: HomeHeroProps) {
             </a>
           </FadeInUp>
 
-          <FadeIn delay={1.0} className="flex items-center justify-center gap-6 mt-16 flex-wrap">
+          <FadeIn delay={1.0} className="flex items-center justify-center gap-2.5 sm:gap-6 mt-12 sm:mt-16 flex-wrap">
             {tags.map((tag) => (
               <span
                 key={tag}
-                className="text-[11px] tracking-[2px] uppercase text-[rgba(255,255,255,0.25)] border border-[rgba(255,255,255,0.08)] px-3 py-1 rounded-full"
+                className="text-[10px] sm:text-[11px] tracking-[1.5px] sm:tracking-[2px] uppercase text-[rgba(255,255,255,0.25)] border border-[rgba(255,255,255,0.08)] px-2.5 sm:px-3 py-1 rounded-full"
                 style={{ fontFamily: "var(--font-space)", fontWeight: 500 }}
               >
                 {tag}

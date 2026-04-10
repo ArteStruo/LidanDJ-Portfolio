@@ -4,7 +4,7 @@ export function GalleryHeader() {
   return (
     <FadeInUp duration={0.6} className="mb-10">
       <p
-        className="text-[#ff003f] tracking-[3px] uppercase text-xs mb-3"
+        className="text-[#ff003f] tracking-[2.5px] sm:tracking-[3px] uppercase text-[11px] sm:text-xs mb-3"
         style={{ fontFamily: "var(--font-space)", fontWeight: 700 }}
       >
         DJ Lidan · Sri Lanka
@@ -16,7 +16,7 @@ export function GalleryHeader() {
         Moments
       </h1>
       <p
-        className="text-[#99a1af] text-[14px] mt-3 max-w-[480px] leading-relaxed"
+        className="text-[#99a1af] text-[13px] sm:text-[14px] mt-3 max-w-[480px] leading-relaxed"
         style={{ fontFamily: "var(--font-space)", fontWeight: 400 }}
       >
         Behind the decks — photos and video from DJ Lidan&apos;s progressive and electronic music performances

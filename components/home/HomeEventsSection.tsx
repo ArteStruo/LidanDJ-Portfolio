@@ -8,9 +8,9 @@ type HomeEventsSectionProps = {
 
 export function HomeEventsSection({ events }: HomeEventsSectionProps) {
   return (
-    <section id="events" className="py-24 px-6">
+    <section id="events" className="py-16 sm:py-24 px-4 sm:px-6">
       <div className="max-w-[1108px] mx-auto">
-        <ScrollReveal className="flex items-end justify-between pb-6 border-b border-[rgba(255,255,255,0.1)] mb-10">
+        <ScrollReveal className="flex flex-col sm:flex-row sm:items-end justify-between gap-5 pb-6 border-b border-[rgba(255,255,255,0.1)] mb-8 sm:mb-10">
           <div>
             <p
               className="text-[#ff003f] tracking-[3px] uppercase text-xs mb-3"
@@ -51,13 +51,13 @@ export function HomeEventsSection({ events }: HomeEventsSectionProps) {
               key={event.date + event.venue}
               delay={index * 0.08}
               yOffset={24}
-              className={`bg-[#111] border rounded-[16px] px-6 py-5 flex items-center justify-between group cursor-pointer transition-all duration-300 ${
+              className={`bg-[#111] border rounded-[16px] px-4 sm:px-6 py-4 sm:py-5 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-2 justify-between group cursor-pointer transition-all duration-300 ${
                 event.highlight
                   ? "border-[rgba(255,0,63,0.4)] shadow-[0_0_30px_rgba(255,0,63,0.07)]"
                   : "border-[rgba(255,255,255,0.05)] hover:border-[rgba(255,0,63,0.25)]"
               }`}
             >
-              <div className="flex items-center gap-6 lg:gap-10 min-w-0">
+              <div className="flex items-start sm:items-center gap-4 sm:gap-6 lg:gap-10 min-w-0 w-full">
                 <div className="text-center shrink-0 w-14">
                   <div
                     className="text-[24px] leading-none text-[#ff003f]"
@@ -76,12 +76,12 @@ export function HomeEventsSection({ events }: HomeEventsSectionProps) {
                 <div className="w-px h-10 bg-[rgba(255,255,255,0.08)] shrink-0" />
 
                 <div className="min-w-0">
-                  <div className="flex items-center gap-3 flex-wrap">
-                    <h3 className="text-[17px] text-white truncate" style={{ fontFamily: "var(--font-space)", fontWeight: 600 }}>
+                  <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+                    <h3 className="text-[15px] sm:text-[17px] text-white break-words" style={{ fontFamily: "var(--font-space)", fontWeight: 600 }}>
                       {event.venue}
                     </h3>
                     <span
-                      className="text-[10px] tracking-[1.5px] uppercase text-[#ff003f] border border-[rgba(255,0,63,0.35)] px-2 py-0.5 rounded-full hidden sm:inline shrink-0"
+                      className="text-[10px] tracking-[1.5px] uppercase text-[#ff003f] border border-[rgba(255,0,63,0.35)] px-2 py-0.5 rounded-full inline shrink-0"
                       style={{ fontFamily: "var(--font-space)", fontWeight: 600 }}
                     >
                       {event.tag}
@@ -100,7 +100,7 @@ export function HomeEventsSection({ events }: HomeEventsSectionProps) {
               </div>
 
               <button
-                className="bg-[#ff003f] h-10 px-5 rounded-full tracking-[1.2px] uppercase text-white transition-transform duration-300 hover:scale-105 text-[12px] shrink-0 hidden sm:flex items-center ml-4"
+                className="bg-[#ff003f] h-10 px-5 rounded-full tracking-[1.2px] uppercase text-white transition-transform duration-300 hover:scale-105 text-[12px] shrink-0 inline-flex items-center sm:ml-4"
                 style={{ fontFamily: "var(--font-space)", fontWeight: 700 }}
               >
                 {event.button}

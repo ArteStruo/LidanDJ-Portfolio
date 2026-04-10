@@ -15,7 +15,7 @@ export function GalleryMediaGrid({ media }: GalleryMediaGridProps) {
         <VideoCard {...media.heroVideo} />
       </FadeIn>
 
-      <div className="grid grid-cols-3 gap-4 mb-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
         {media.rowTwoPhotos.map((item, i) => (
           <FadeInUp
             key={item.src}
@@ -56,7 +56,7 @@ export function GalleryMediaGrid({ media }: GalleryMediaGridProps) {
         <FadeInUp yOffset={20} duration={0.6} delay={0.5} className="col-span-12 sm:col-span-7 h-[260px] sm:h-[320px]">
           <PhotoCard {...media.rowFive.widePhoto} />
         </FadeInUp>
-        <div className="col-span-12 sm:col-span-5 grid grid-rows-2 gap-4 h-[280px] sm:h-[320px]">
+        <div className="col-span-12 sm:col-span-5 grid grid-rows-2 gap-4 h-[420px] sm:h-[320px]">
           <FadeInUp yOffset={20} duration={0.6} delay={0.55} className="h-full">
             <PhotoCard {...media.rowFive.topRightPhoto} />
           </FadeInUp>

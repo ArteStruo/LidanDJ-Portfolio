@@ -111,8 +111,8 @@ export default function MusicPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] pt-28 pb-20">
-      <div className="max-w-[1108px] mx-auto px-6">
+    <div className="min-h-screen bg-[#0a0a0a] pt-24 sm:pt-28 pb-16 sm:pb-20">
+      <div className="max-w-[1108px] mx-auto px-4 sm:px-6">
         <MusicHeader />
         <SoundCloudPlayer widgetRef={widgetRef} />
         <StreamingPlatforms platforms={platforms} />

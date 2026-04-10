@@ -19,7 +19,7 @@ type FeaturedTracksProps = {
 export function FeaturedTracks({ tracks, currentSoundIndex, isPlaying, onTrackClick }: FeaturedTracksProps) {
   return (
     <FadeInUp duration={0.6} delay={0.4}>
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-6 gap-3">
         <div className="flex items-center gap-3">
           <div className="size-5 flex items-center justify-center">
             <svg className="w-full h-full" fill="none" viewBox="0 0 21.425 24">
@@ -28,7 +28,7 @@ export function FeaturedTracks({ tracks, currentSoundIndex, isPlaying, onTrackCl
               <path d={svgPaths.p12e0fc00} stroke="#FF003F" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.78542" />
             </svg>
           </div>
-          <h2 className="text-[22px] text-white uppercase" style={{ fontFamily: "var(--font-bebas)", letterSpacing: "1px" }}>
+          <h2 className="text-[20px] sm:text-[22px] text-white uppercase" style={{ fontFamily: "var(--font-bebas)", letterSpacing: "1px" }}>
             Featured Tracks
           </h2>
         </div>
@@ -36,9 +36,9 @@ export function FeaturedTracks({ tracks, currentSoundIndex, isPlaying, onTrackCl
           href="https://soundcloud.com/nadil-nimnaka"
           target="_blank"
           rel="noreferrer"
-          className="flex items-center gap-1.5 text-[#ff003f] hover:gap-2.5 transition-all duration-300"
+          className="flex items-center gap-1.5 text-[#ff003f] hover:gap-2.5 transition-all duration-300 shrink-0"
         >
-          <span className="text-[12px] tracking-[1.5px] uppercase" style={{ fontFamily: "var(--font-space)", fontWeight: 700 }}>
+          <span className="text-[11px] sm:text-[12px] tracking-[1.2px] sm:tracking-[1.5px] uppercase" style={{ fontFamily: "var(--font-space)", fontWeight: 700 }}>
             All Tracks
           </span>
           <svg className="size-4" fill="none" viewBox="0 0 16 16">
@@ -56,11 +56,11 @@ export function FeaturedTracks({ tracks, currentSoundIndex, isPlaying, onTrackCl
               yOffset={0}
               duration={0.4}
               delay={0.5 + index * 0.08}
-              className={`flex items-center justify-between px-6 py-4 group cursor-pointer transition-all duration-300 hover:bg-[rgba(255,255,255,0.03)] ${
+              className={`flex items-center justify-between px-4 sm:px-6 py-4 group cursor-pointer transition-all duration-300 hover:bg-[rgba(255,255,255,0.03)] ${
                 index !== tracks.length - 1 ? "border-b border-[rgba(255,255,255,0.05)]" : ""
               }`}
             >
-              <div className="flex items-center gap-5 min-w-0" onClick={() => onTrackClick(index)}>
+              <div className="flex items-center gap-3 sm:gap-5 min-w-0 w-full" onClick={() => onTrackClick(index)}>
                 <span
                   className={`w-6 text-center text-[13px] shrink-0 ${
                     currentSoundIndex === index && isPlaying
@@ -96,7 +96,7 @@ export function FeaturedTracks({ tracks, currentSoundIndex, isPlaying, onTrackCl
                 </button>
                 <div className="min-w-0">
                   <span
-                    className={`block text-[15px] transition-colors duration-200 truncate ${
+                    className={`block text-[14px] sm:text-[15px] transition-colors duration-200 truncate ${
                       currentSoundIndex === index ? "text-[#ff003f]" : "text-[#e5e7eb] group-hover:text-white"
                     }`}
                     style={{ fontFamily: "var(--font-space)", fontWeight: 500 }}

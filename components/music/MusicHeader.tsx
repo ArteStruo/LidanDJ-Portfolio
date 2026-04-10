@@ -4,7 +4,7 @@ export function MusicHeader() {
   return (
     <FadeInUp duration={0.6} className="mb-10">
       <p
-        className="text-[#ff003f] tracking-[3px] uppercase text-xs mb-3"
+        className="text-[#ff003f] tracking-[2.5px] sm:tracking-[3px] uppercase text-[11px] sm:text-xs mb-3"
         style={{ fontFamily: "var(--font-space)", fontWeight: 700 }}
       >
         DJ Lidan — Discography
@@ -16,7 +16,7 @@ export function MusicHeader() {
         Progressive &amp; Electronic Music
       </h1>
       <p
-        className="text-[#99a1af] text-[15px] mt-3 max-w-[560px] leading-relaxed"
+        className="text-[#99a1af] text-[14px] sm:text-[15px] mt-3 max-w-[560px] leading-relaxed"
         style={{ fontFamily: "var(--font-space)", fontWeight: 400 }}
       >
         Stream DJ Lidan&apos;s mixes, original productions and live recordings — straight from Colombo,
