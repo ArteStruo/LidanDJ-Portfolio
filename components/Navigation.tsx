@@ -3,6 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import path from "path";
 
 export function Navigation() {
   const pathname = usePathname();
@@ -12,7 +13,8 @@ export function Navigation() {
     { path: "/", label: "Home" },
     { path: "/music", label: "Music" },
     { path: "/gallery", label: "Gallery" },
-    { path: "/contact", label: "Contact" },
+    { path: "/about", label: "About" },
+    { path: "/contact", label: "Contact" }
   ];
 
   useEffect(() => {
