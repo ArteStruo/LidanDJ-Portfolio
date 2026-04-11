@@ -30,6 +30,9 @@ export function SoundCloudPlayer({ widgetRef }: SoundCloudPlayerProps) {
           color: "#ff003f",
           show_user: true,
           visual: true,
+          sharing: true,
+          show_artwork: true,
+          show_playcount: true,
         })}
         className="block w-full h-[340px] sm:h-[500px] relative z-10"
       />
