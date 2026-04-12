@@ -65,7 +65,7 @@ const platforms = [
 const bioStats = [
   { value: "12hr", label: "Marathon Sets", desc: "Non-stop underground journeys" },
   { value: "100+", label: "Live Performances", desc: "Across Sri Lanka & abroad" },
-  { value: "COL", label: "Based in Colombo", desc: "Sri Lanka's electronic capital" },
+  { value: "CMB", label: "Based in Colombo", desc: "Sri Lanka's electronic capital" },
 ];
 
 export default function MusicPage() {
