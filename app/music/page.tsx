@@ -10,24 +10,24 @@ import { useSoundCloudWidget } from "@/lib/soundcloud/useSoundCloudWidget";
 
 const setsData = [
   {
-    id: "closing",
-    title: "Isle Radio Episode 21 - Guest Mix by LIDAN",
-    url: "https://soundcloud.com/isle-musica/isle-radio-episode-21-guest-mix-by-lidan?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
-    genre: "DJ Set",
+    id: "isle-radio-episode-21",
+    title: "Isle Radio Episode 21 (Guest Mix by Lidan)",
+    url: "https://soundcloud.com/isle-musica/isle-radio-episode-21-guest-mix-by-lidan",
+    genre: "Progressive House",
     plays: "N/A",
   },
   {
-    id: "next-morning",
-    title: "VENUM & LIDAN - LSD IS THE BOMB",
-    url: "https://on.soundcloud.com/1t1S0vgh0SNkzrVSJb",
-    genre: "DJ Set",
+    id: "lsd-is-the-bomb",
+    title: "LSD Is The Bomb",
+    url: "https://soundcloud.com/binara-rushdie/lsd-is-the-bomb",
+    genre: "Progressive",
     plays: "N/A",
   },
   {
-    id: "journey-1",
+    id: "lidan-music-1-hour-extend-set",
     title: "Lidan Music 1 Hour Extend Set",
-    url: "https://on.soundcloud.com/mvjq7AumjI62sZYoCP",
-    genre: "DJ Set",
+    url: "https://soundcloud.com/nadil-nimnaka/lidan-music-1-hour-extend-set",
+    genre: "Techno",
     plays: "N/A",
   },
 ];
