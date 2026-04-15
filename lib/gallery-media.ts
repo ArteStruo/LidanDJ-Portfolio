@@ -1,4 +1,5 @@
-export type GalleryPhotoItem = {
+export type GalleryMediaItem = {
+  type: "image" | "video";
   src: string;
   alt: string;
   caption?: string;
@@ -15,16 +16,16 @@ export type GalleryVideoItem = {
 
 export type GalleryMediaConfig = {
   heroVideo: GalleryVideoItem;
-  rowTwoPhotos: GalleryPhotoItem[];
+  rowTwoPhotos: GalleryMediaItem[];
   rowThree: {
-    tallPhoto: GalleryPhotoItem;
+    tallPhoto: GalleryMediaItem;
     secondaryVideo: GalleryVideoItem;
   };
-  rowFourPhotos: GalleryPhotoItem[];
+  rowFourPhotos: GalleryMediaItem[];
   rowFive: {
-    widePhoto: GalleryPhotoItem;
-    topRightPhoto: GalleryPhotoItem;
-    bottomRightPhoto: GalleryPhotoItem;
+    widePhoto: GalleryMediaItem;
+    topRightPhoto: GalleryMediaItem;
+    bottomRightPhoto: GalleryMediaItem;
   };
 };
 
@@ -39,72 +40,83 @@ export const galleryMedia: GalleryMediaConfig = {
   },
   rowTwoPhotos: [
     {
+      type: "image",
       src: "data:image/jpeg;base64,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",
       alt: "A good life is a collection of happy memories.",
       caption: "Park Street Warehouse - @thepiratesl",
     },
     {
-      src: "https://images.unsplash.com/photo-1624929303661-22c5bce0169b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbGVjdHJvbmljJTIwbXVzaWMlMjBmZXN0aXZhbCUyMGNyb3dkJTIwbGlnaHRzfGVufDF8fHx8MTc3NTgxMzQ5Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      type: "image",
+      src:"/images/gallery/FlyingDust-afters-b.jpeg",
       alt: "Electronic music festival crowd in Sri Lanka",
-      caption: "Festival Crowd",
+      caption: "Flying Dust Afters - 2025",
     },
     {
-      src: "https://images.unsplash.com/photo-1578251955495-a8060f2b9cfe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxESiUyMHR1cm50YWJsZSUyMG1peGVyJTIwY2xvc2UlMjB1cHxlbnwxfHx8fDE3NzU4MTM0OTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      type: "image",
+      src: "/images/gallery/FlyingDust-afters-f.jpeg",
       alt: "DJ Lidan's turntable mixer setup",
-      caption: "The Decks",
+      caption: "Flying Dust Afters - 2025",
     },
   ],
   rowThree: {
     tallPhoto: {
-      src: "https://images.unsplash.com/photo-1761431246385-abb584084ce1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyYXZlJTIwdW5kZXJncm91bmQlMjBwYXJ0eSUyMGRhcmslMjBhdG1vc3BoZXJlfGVufDF8fHx8MTc3NTgxMzQ5N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      type: "image",
+      src: "/images/gallery/Studio-1.jpeg",
       alt: "Underground rave party dark atmosphere — Sri Lanka electronic music",
-      caption: "Underground · Colombo",
+      caption: "Lidan Music",
     },
     secondaryVideo: {
-      thumbnail: "https://images.unsplash.com/photo-1540039155732-684734e5d590?w=1080&auto=format&fit=crop&q=80",
-      title: "Marathon Set — 12 Hours Underground",
-      subtitle: "Electronic Music · Colombo · Mar 2026",
-      duration: "12:00:00",
-      embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      thumbnail: "https://i.ytimg.com/vi/K2aI3F_KAWI/hqdefault.jpg?sqp=-oaymwFBCNACELwBSFryq4qpAzMIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB8AEB-AH-CYAC0AWKAgwIABABGFYgRShyMA8=&rs=AOn4CLDg6-tT4iCBEFVJqbZbCTlD3VqvzA",
+      title: "B’BASH’ the forest party @lidanmusic",
+      subtitle: "21 Nov 2023  SINHARAJA FOREST EDGE",
+      duration: "00:00:48",
+      embedUrl: "https://www.youtube.com/embed/K2aI3F_KAWI",
     },
   },
   rowFourPhotos: [
     {
-      src: "https://images.unsplash.com/photo-1773274157508-ddbf6074aa14?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb25jZXJ0JTIwc3RhZ2UlMjBsYXNlciUyMGxpZ2h0cyUyMG5pZ2h0fGVufDF8fHx8MTc3NTgxMzQ5N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      type: "image",
+      src: "/images/gallery/unawatuna.jpeg",
       alt: "Concert stage laser lights at DJ Lidan set Sri Lanka",
-      caption: "Lasers · Galle",
+      caption: "Unawatuna Beach Party",
     },
     {
-      src: "https://images.unsplash.com/photo-1656231267321-282e40e05d24?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtdXNpYyUyMHByb2R1Y2VyJTIwaGVhZHBob25lcyUyMHN0dWRpbyUyMGRhcmt8ZW58MXx8fHwxNzc1ODEzNDk3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      type: "image",
+      src: "/images/gallery/Crowd.jpeg",
       alt: "Music producer DJ Lidan headphones studio Colombo",
-      caption: "Studio Sessions",
+      caption: "Engergetic Crowd",
     },
     {
-      src: "https://images.unsplash.com/photo-1768885514740-d64d25ac9a64?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuaWdodGNsdWIlMjBkYW5jZSUyMGZsb29yJTIwZGFyayUyMG5lb258ZW58MXx8fHwxNzc1ODEzNTAxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      type: "image",
+      src: "/images/gallery/Crowd-1.jpeg",
       alt: "Nightclub dance floor neon lights electronic music",
       caption: "Dance Floor",
     },
     {
-      src: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1080&auto=format&fit=crop&q=80",
+      type: "video",
+      src: "/images/gallery/Energetic-set.mp4",
       alt: "DJ Lidan equipment setup — electronic music DJ Colombo",
-      caption: "The Setup",
+      caption: "House Music",
     },
   ],
   rowFive: {
     widePhoto: {
-      src: "https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?w=1080&auto=format&fit=crop&q=80",
+      type: "video",
+      src: "/images/gallery/Energetic-set-2.mp4",
       alt: "DJ Lidan — progressive electronic music DJ Sri Lanka official photo",
       caption: "DJ Lidan · Official",
     },
     topRightPhoto: {
-      src: "https://images.unsplash.com/photo-1540039155732-684734e5d590?w=1080&auto=format&fit=crop&q=80",
+      type: "image",
+      src: "/images/gallery/Generic-beats.jpeg",
       alt: "Crowd at DJ Lidan event — electronic music Sri Lanka",
-      caption: "Crowd Energy",
+      caption: "Generic Beats",
     },
     bottomRightPhoto: {
-      src: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1080&auto=format&fit=crop&q=80",
+      type: "video",
+      src: "/images/gallery/mountain-set-1.mp4",
       alt: "DJ mixer gear — DJ Lidan Colombo Sri Lanka",
-      caption: "Gear · Studio",
+      caption: "Hills of Galaha, Sri Lanka",
     },
   },
 };
