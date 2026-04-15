@@ -5,7 +5,6 @@ export type HomeEvent = {
   location: string;
   tag: string;
   button: string;
-  highlight: boolean;
 };
 
 export const homeHeroTags: string[] = [
@@ -23,7 +22,6 @@ export const homeEvents: HomeEvent[] = [
     location: "Colombo, Sri Lanka",
     tag: "Face-to-Face Battle",
     button: "Bravado vs Lidan F2F",
-    highlight: true,
   },
   {
     date: "MAR 02",
@@ -32,7 +30,6 @@ export const homeEvents: HomeEvent[] = [
     location: "Galle, Sri Lanka",
     tag: "Progressive Night",
     button: "Tickets Available",
-    highlight: false,
   },
   {
     date: "MAR 15",
@@ -41,7 +38,6 @@ export const homeEvents: HomeEvent[] = [
     location: "Colombo, Sri Lanka",
     tag: "Marathon · 12hrs",
     button: "RSVP Only",
-    highlight: false,
   },
   {
     date: "APR 05",
@@ -50,6 +46,22 @@ export const homeEvents: HomeEvent[] = [
     location: "Mirissa, Sri Lanka",
     tag: "Electronic / Outdoor",
     button: "Tickets Available",
-    highlight: false,
   },
+  {
+    date: "APR 17",
+    year: "2026",
+    venue: "MIRA",
+    location: "The Travelling Brunchure, Colombo",
+    tag: "Electronic / Outdoor",
+    button: "Tickets Available",
+  },
+  {
+    date: "APR 18",
+    year: "2026",
+    venue: "Hello Hiri",
+    location: "Hirikatiya, Sri Lanka",
+    tag: "LIDAN B2B BRAVADO",
+    button: "Tickets Available",
+  },
+  
 ];
