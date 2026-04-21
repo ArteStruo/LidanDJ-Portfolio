@@ -1,0 +1,22 @@
+{
+  "tracks": [
+    {
+        "id": "isle-radio-episode-21",
+        "title": "Isle Radio Episode 21 (Guest Mix by Lidan)",
+        "url": "https://soundcloud.com/isle-musica/isle-radio-episode-21-guest-mix-by-lidan",
+        "genre": "Progressive House"
+    },
+    {
+        "id": "lsd-is-the-bomb",
+        "title": "LSD Is The Bomb",
+        "url": "https://soundcloud.com/binara-rushdie/lsd-is-the-bomb",
+        "genre": "Progressive"
+    },
+    {
+        "id": "lidan-music-1-hour-extend-set",
+        "title": "Lidan Music 1 Hour Extend Set",
+        "url": "https://soundcloud.com/nadil-nimnaka/lidan-music-1-hour-extend-set",
+        "genre": "Techno"
+    }
+  ]
+}

@@ -87,7 +87,7 @@ export function HomeEventsSection({ events }: HomeEventsSectionProps) {
                 key={event.date + event.venue}
                 delay={index * 0.08}
                 yOffset={24}
-                className={`bg-[#111] border rounded-[16px] px-4 sm:px-6 py-4 sm:py-5 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-2 justify-between group cursor-pointer transition-all duration-300 ${
+                className={`bg-[#111] border rounded-[16px] px-4 sm:px-6 py-4 sm:py-5 group cursor-pointer transition-all duration-300 ${
                   isHighlight
                     ? "border-[rgba(255,0,63,0.4)] shadow-[0_0_30px_rgba(255,0,63,0.07)]"
                     : "border-[rgba(255,255,255,0.05)] hover:border-[rgba(255,0,63,0.25)]"
@@ -173,16 +173,6 @@ export function HomeEventsSection({ events }: HomeEventsSectionProps) {
                     </div>
                   </div>
                 </div>
-
-                <button
-                  className="bg-[#ff003f] h-10 px-5 rounded-full tracking-[1.2px] uppercase text-white transition-transform duration-300 hover:scale-105 text-[12px] shrink-0 inline-flex items-center sm:ml-4"
-                  style={{
-                    fontFamily: "var(--font-space)",
-                    fontWeight: 700,
-                  }}
-                >
-                  {event.button}
-                </button>
               </ScrollReveal>
             );
           })}

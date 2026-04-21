@@ -6,7 +6,6 @@ type Track = {
   title: string;
   url: string;
   genre: string;
-  plays: string;
 };
 
 type FeaturedTracksProps = {

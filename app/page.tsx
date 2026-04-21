@@ -1,12 +1,16 @@
 import { HomeEventsSection } from "@/components/home/HomeEventsSection";
 import { HomeHero } from "@/components/home/HomeHero";
-import { homeEvents, homeHeroTags } from "@/lib/home-content";
+import { readEventsData } from "@/lib/content-store";
+
+export const dynamic = "force-dynamic";
 
 export default function HomePage() {
+  const { heroTags, events } = readEventsData();
+
   return (
     <div className="bg-[#050505]">
-      <HomeHero tags={homeHeroTags} />
-      <HomeEventsSection events={homeEvents} />
+      <HomeHero tags={heroTags} />
+      <HomeEventsSection events={events} />
     </div>
   );
 }

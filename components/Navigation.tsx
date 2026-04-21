@@ -2,12 +2,12 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import path from "path";
+import { useState } from "react";
 
 export function Navigation() {
   const pathname = usePathname();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mobileMenuPath, setMobileMenuPath] = useState<string | null>(null);
+  const isMobileMenuOpen = mobileMenuPath === pathname;
 
   const links = [
     { path: "/", label: "Home" },
@@ -16,10 +16,6 @@ export function Navigation() {
     { path: "/about", label: "About" },
     { path: "/contact", label: "Contact" }
   ];
-
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-  }, [pathname]);
 
   return (
     <motion.nav
@@ -45,7 +41,9 @@ export function Navigation() {
 
         <button
           type="button"
-          onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+          onClick={() =>
+            setMobileMenuPath((current) => (current === pathname ? null : pathname))
+          }
           className="md:hidden inline-flex items-center justify-center size-10 rounded-lg border border-[rgba(255,255,255,0.12)] text-[#d1d5dc]"
           aria-label="Toggle navigation menu"
           aria-expanded={isMobileMenuOpen}
@@ -98,6 +96,7 @@ export function Navigation() {
                 <Link
                   key={link.path}
                   href={link.path}
+                  onClick={() => setMobileMenuPath(null)}
                   className={`px-3 py-2.5 rounded-lg text-sm tracking-[1.3px] uppercase transition-colors duration-200 ${
                     isActive
                       ? "text-[#ff003f] bg-[rgba(255,0,63,0.12)] border border-[rgba(255,0,63,0.35)]"

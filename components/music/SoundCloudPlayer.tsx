@@ -4,9 +4,10 @@ import { buildWidgetUrl } from "@/lib/soundcloud/buildWidgetUrl";
 
 type SoundCloudPlayerProps = {
   widgetRef: RefObject<HTMLIFrameElement | null>;
+  trackUrl: string;
 };
 
-export function SoundCloudPlayer({ widgetRef }: SoundCloudPlayerProps) {
+export function SoundCloudPlayer({ widgetRef, trackUrl }: SoundCloudPlayerProps) {
   return (
     <FadeInUp
       yOffset={30}
@@ -25,7 +26,7 @@ export function SoundCloudPlayer({ widgetRef }: SoundCloudPlayerProps) {
         scrolling="no"
         frameBorder="no"
         allow="autoplay"
-        src={buildWidgetUrl("https://soundcloud.com/nadil-nimnaka", {
+        src={buildWidgetUrl(trackUrl, {
           auto_play: false,
           color: "#ff003f",
           show_user: true,
