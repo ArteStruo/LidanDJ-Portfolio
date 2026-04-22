@@ -57,9 +57,9 @@ function createClientPromise(): Promise<MongoClient> {
   return new MongoClient(normalizeMongoConnectionString(connectionString)).connect();
 }
 
-export async function getMongoDb(): Promise<Db | null> {
+export async function getMongoDb(): Promise<Db> {
   if (!connectionString) {
-    return null;
+    throw new Error("Missing required environment variable: MONGODB_CONNECTION_STRING");
   }
 
   if (!global.__mongoClientPromise) {
