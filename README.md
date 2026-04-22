@@ -16,6 +16,27 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Admin panel setup
+
+Create a local environment file:
+
+```bash
+cp .env.local.example .env.local
+```
+
+Or add these values directly to `.env.local`:
+
+```env
+ADMIN_USERNAME=lidan
+ADMIN_PASSWORD=your_secure_password_here
+JWT_SECRET=your_random_secret_here
+```
+
+Hidden admin routes:
+
+- `/admin/login`
+- `/admin/dashboard`
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
