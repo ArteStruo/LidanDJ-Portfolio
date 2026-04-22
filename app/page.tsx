@@ -4,8 +4,8 @@ import { readEventsData } from "@/lib/content-store";
 
 export const dynamic = "force-dynamic";
 
-export default function HomePage() {
-  const { heroTags, events } = readEventsData();
+export default async function HomePage() {
+  const { heroTags, events } = await readEventsData();
 
   return (
     <div className="bg-[#050505]">

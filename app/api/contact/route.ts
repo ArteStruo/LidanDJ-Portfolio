@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import { sendEmail } from "@/lib/mail/sendEmail";
+import { createBookingRequest } from "@/lib/content-store";
 import type { MailDTO } from "@/lib/mail/types";
 
 export const runtime = "nodejs";
@@ -30,30 +30,18 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const result = await sendEmail({
+    await createBookingRequest({
       fullName: fullName.trim(),
       email: email.trim(),
       subject: subject.trim(),
       message: message.trim(),
     });
-
-    if (!result.ok) {
-      console.error("[contact-api] Mail send failed", {
-        status: result.status,
-        error: result.error,
-      });
-
-      return NextResponse.json(
-        { error: "Could not send inquiry right now. Please try again later." },
-        { status: 502 }
-      );
-    }
   } catch (error) {
-    console.error("[contact-api] Unexpected send error", error);
+    console.error("[contact-api] Failed to store booking request", error);
 
     return NextResponse.json(
       { error: "Could not send inquiry right now. Please try again later." },
-      { status: 502 }
+      { status: 500 }
     );
   }
 
