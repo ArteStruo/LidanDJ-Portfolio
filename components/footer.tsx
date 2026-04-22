@@ -80,11 +80,11 @@ export function Footer() {
               </a>
 
               <a
-                href="mailto:nadilnimnaka99@gmail.com"
+                href="mailto:lidanmusic.02@gmail.com"
                 className="flex items-center gap-3 text-zinc-300 transition hover:text-[#ff0055]"
               >
                 <Mail className="h-4 w-4" />
-                <span>nadilnimnaka99@gmail.com</span>
+                <span>lidanmusic.02@gmail.com</span>
               </a>
             </div>
           </div>

@@ -29,16 +29,30 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
   }
 
-  const result = await sendEmail({
-    fullName: fullName.trim(),
-    email: email.trim(),
-    subject: subject.trim(),
-    message: message.trim(),
-  });
+  try {
+    const result = await sendEmail({
+      fullName: fullName.trim(),
+      email: email.trim(),
+      subject: subject.trim(),
+      message: message.trim(),
+    });
 
-  if (typeof result === "number") {
+    if (!result.ok) {
+      console.error("[contact-api] Mail send failed", {
+        status: result.status,
+        error: result.error,
+      });
+
+      return NextResponse.json(
+        { error: "Could not send inquiry right now. Please try again later." },
+        { status: 502 }
+      );
+    }
+  } catch (error) {
+    console.error("[contact-api] Unexpected send error", error);
+
     return NextResponse.json(
-      { error: "Failed to send email", code: result },
+      { error: "Could not send inquiry right now. Please try again later." },
       { status: 502 }
     );
   }

@@ -6,7 +6,14 @@ export type MailDTO = {
 };
 
 export type MailSuccessResult = {
+  ok: true;
   status: number;
+};
+
+export type MailFailureResult = {
+  ok: false;
+  status: number;
+  error?: MailjetErrorMessage | string;
 };
 
 export type MailjetErrorMessage = {
@@ -20,4 +27,4 @@ export type MailjetErrorMessage = {
   Status: string;
 };
 
-export type SendEmailResult = MailSuccessResult | number;
+export type SendEmailResult = MailSuccessResult | MailFailureResult;
