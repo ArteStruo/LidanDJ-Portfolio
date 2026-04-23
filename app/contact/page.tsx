@@ -1,5 +1,36 @@
+import type { Metadata } from "next";
+
 import { ContactInfo } from "@/components/contact/ContactInfo";
 import { ContactBookingForm } from "@/components/contact/ContactBookingForm";
+
+export const metadata: Metadata = {
+  title: "Contact & Bookings",
+  description:
+    "Book DJ Lidan for club nights, private events, and collaborations. Send your enquiry and get booking details directly.",
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    title: "Contact & Bookings | DJ Lidan",
+    description:
+      "Book DJ Lidan for club nights, private events, and collaborations. Send your enquiry and get booking details directly.",
+    url: "/contact",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Contact DJ Lidan",
+      },
+    ],
+  },
+  twitter: {
+    title: "Contact & Bookings | DJ Lidan",
+    description:
+      "Book DJ Lidan for club nights, private events, and collaborations. Send your enquiry and get booking details directly.",
+    images: ["/og-image.jpg"],
+  },
+};
 
 export default function ContactPage() {
   return (
