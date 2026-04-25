@@ -5,20 +5,5 @@
     "DJ Sri Lanka",
     "Underground Sets"
   ],
-  "events": [
-    {
-      "date": "JUL 23",
-      "year": "2026",
-      "venue": "Kandy",
-      "location": "Kandy",
-      "tag": "Progressive House"
-    },
-    {
-      "date": "APR 30",
-      "year": "2026",
-      "venue": "Colombo, Sri lanka",
-      "location": "Colombo, Sri lanka",
-      "tag": "Electronic Music"
-    }
-  ]
+  "events": []
 }

@@ -5,6 +5,8 @@ import { Toaster } from "sonner";
 import { AppShell } from "@/components/AppShell";
 import "./globals.css";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com"; // TODO: set NEXT_PUBLIC_SITE_URL in .env.local
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -16,9 +18,47 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "DJ Lidan Portfolio",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "DJ Lidan — Progressive House",
+    template: "%s | DJ Lidan",
+  },
   description:
-    "Crafting hypnotic underground journeys from the heart of Colombo",
+    "Progressive House DJ based in Sri Lanka. Discover mixes, event updates, gallery highlights, and booking details.",
+  openGraph: {
+    type: "website",
+    siteName: "DJ Lidan",
+    title: "DJ Lidan — Progressive House",
+    description:
+      "Progressive House DJ based in Sri Lanka. Discover mixes, event updates, gallery highlights, and booking details.",
+    url: SITE_URL,
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "DJ Lidan — Progressive House",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DJ Lidan — Progressive House",
+    description:
+      "Progressive House DJ based in Sri Lanka. Discover mixes, event updates, gallery highlights, and booking details.",
+    images: ["/og-image.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({

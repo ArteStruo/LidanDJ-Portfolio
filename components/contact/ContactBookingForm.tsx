@@ -54,7 +54,7 @@ export function ContactBookingForm() {
       setEmail("");
       setEventType("");
       setMessage("");
-      setStatusMessage("Thanks — your inquiry has been sent.");
+      setStatusMessage("Thanks — your inquiry has been recorded.");
     } catch (error) {
       const fallbackMessage = "Could not send inquiry right now. Please try again.";
 

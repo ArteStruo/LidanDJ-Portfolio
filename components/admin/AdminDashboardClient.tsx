@@ -6,20 +6,26 @@ import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import { AdminSidebar } from "@/components/admin/AdminSidebar";
+import { BookingRequestsSection } from "@/components/admin/BookingRequestsSection";
 import { EventFormDialog } from "@/components/admin/EventFormDialog";
 import { EventsManagementSection } from "@/components/admin/EventsManagementSection";
 import { MusicManagementSection } from "@/components/admin/MusicManagementSection";
 import { TrackFormDialog } from "@/components/admin/TrackFormDialog";
 import { emptyEvent, emptyTrack, genreSuggestions, heroTagSuggestions } from "@/components/admin/admin-constants";
 import { formatStorageDate, parseStoredEventDate, slugify } from "@/components/admin/admin-utils";
-import type { EventsData, HomeEvent, MusicData, MusicTrack } from "@/lib/content-store";
+import type { BookingRequest, EventsData, HomeEvent, MusicData, MusicTrack } from "@/lib/content-store";
 
-type AdminSection = "music" | "events";
+type AdminSection = "music" | "events" | "bookings";
+
+type BookingsApiResponse = {
+  bookings: BookingRequest[];
+};
 
 export function AdminDashboardClient() {
   const [section, setSection] = useState<AdminSection>("music");
   const [musicData, setMusicData] = useState<MusicData>({ tracks: [] });
   const [eventsData, setEventsData] = useState<EventsData>({ heroTags: [], events: [] });
+  const [bookingRequests, setBookingRequests] = useState<BookingRequest[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const [isTrackDialogOpen, setIsTrackDialogOpen] = useState(false);
@@ -38,24 +44,27 @@ export function AdminDashboardClient() {
     const load = async () => {
       setIsLoading(true);
 
-      const [musicResponse, eventsResponse] = await Promise.all([
+      const [musicResponse, eventsResponse, bookingsResponse] = await Promise.all([
         fetch("/api/admin/music", { cache: "no-store" }),
         fetch("/api/admin/events", { cache: "no-store" }),
+        fetch("/api/admin/bookings", { cache: "no-store" }),
       ]);
 
-      if (!musicResponse.ok || !eventsResponse.ok) {
+      if (!musicResponse.ok || !eventsResponse.ok || !bookingsResponse.ok) {
         toast.error("Failed to load admin data.");
         setIsLoading(false);
         return;
       }
 
-      const [musicJson, eventsJson] = (await Promise.all([
+      const [musicJson, eventsJson, bookingsJson] = (await Promise.all([
         musicResponse.json(),
         eventsResponse.json(),
-      ])) as [MusicData, EventsData];
+        bookingsResponse.json(),
+      ])) as [MusicData, EventsData, BookingsApiResponse];
 
       setMusicData(musicJson);
       setEventsData(eventsJson);
+      setBookingRequests(bookingsJson.bookings);
       setIsLoading(false);
     };
 
@@ -63,7 +72,12 @@ export function AdminDashboardClient() {
   }, []);
 
   const dashboardTitle = useMemo(
-    () => (section === "music" ? "Music Management" : "Events Management"),
+    () =>
+      section === "music"
+        ? "Music Management"
+        : section === "events"
+          ? "Events Management"
+          : "Booking Requests",
     [section]
   );
 
@@ -310,6 +324,26 @@ export function AdminDashboardClient() {
     window.location.href = "/admin/login";
   };
 
+  const handleBookingDelete = async (id: string) => {
+    const shouldDelete = window.confirm("Delete this booking request?");
+
+    if (!shouldDelete) {
+      return;
+    }
+
+    const response = await fetch(`/api/admin/bookings?id=${encodeURIComponent(id)}`, {
+      method: "DELETE",
+    });
+
+    if (!response.ok) {
+      toast.error("Failed to delete booking request.");
+      return;
+    }
+
+    setBookingRequests((current) => current.filter((booking) => booking.id !== id));
+    toast.success("Booking request deleted.");
+  };
+
   return (
     <div className="min-h-screen bg-[#050505] text-white">
       <div className="min-h-screen w-full">
@@ -328,7 +362,7 @@ export function AdminDashboardClient() {
                   <Plus className="size-4" />
                   Add Track
                 </Button>
-              ) : (
+              ) : section === "events" ? (
                 <Button
                   onClick={openAddEvent}
                   className="bg-[#ff003f] hover:bg-[#ff1a56] text-white"
@@ -336,7 +370,8 @@ export function AdminDashboardClient() {
                   <Plus className="size-4" />
                   Add Event
                 </Button>
-              )}
+              ) : null
+            }
             </div>
 
             {isLoading ? (
@@ -347,7 +382,7 @@ export function AdminDashboardClient() {
                 onEditTrack={openEditTrack}
                 onDeleteTrack={handleTrackDelete}
               />
-            ) : (
+            ) : section === "events" ? (
               <EventsManagementSection
                 eventsData={eventsData}
                 filteredTagSuggestions={filteredTagSuggestions}
@@ -357,6 +392,11 @@ export function AdminDashboardClient() {
                 onRemoveTag={handleRemoveTag}
                 onEditEvent={openEditEvent}
                 onDeleteEvent={handleEventDelete}
+              />
+            ) : (
+              <BookingRequestsSection
+                bookings={bookingRequests}
+                onDeleteBooking={handleBookingDelete}
               />
             )}
           </div>

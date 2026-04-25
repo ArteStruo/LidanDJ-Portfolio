@@ -1,9 +1,9 @@
 import { env } from "@/lib/env";
 import type { MailDTO, SendEmailResult } from "@/lib/mail/types";
 
-const mailFromEmail = process.env.MAILJET_FROM_EMAIL ?? "noreply@yourdomain.com";
+const mailFromEmail = process.env.MAILJET_FROM_EMAIL ?? "lidanmusic.02@gmail.com";
 const mailFromName = process.env.MAILJET_FROM_NAME ?? "LidanDJ Portfolio";
-const mailToEmail = process.env.MAILJET_TO_EMAIL ?? "inbox@yourdomain.com";
+const mailToEmail = process.env.MAILJET_TO_EMAIL ?? "lidanmusic.02@gmail.com";
 const mailToName = process.env.MAILJET_TO_NAME ?? "Booking Inbox";
 
 export async function sendEmail(mailRequest: MailDTO): Promise<SendEmailResult> {
@@ -46,8 +46,24 @@ export async function sendEmail(mailRequest: MailDTO): Promise<SendEmailResult> 
   });
 
   if (!response.ok) {
-    return response.status;
+    const responseBody = await response.text();
+
+    let parsedError: string | undefined;
+
+    if (responseBody) {
+      try {
+        parsedError = JSON.stringify(JSON.parse(responseBody));
+      } catch {
+        parsedError = responseBody;
+      }
+    }
+
+    return {
+      ok: false,
+      status: response.status,
+      error: parsedError,
+    };
   }
 
-  return { status: response.status };
+  return { ok: true, status: response.status };
 }

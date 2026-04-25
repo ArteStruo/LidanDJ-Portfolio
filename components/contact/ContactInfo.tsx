@@ -71,7 +71,7 @@ export function ContactInfo() {
       </div>
 
       <div className="space-y-6 pt-4 border-t border-[rgba(255,255,255,0.08)]">
-        <a href="mailto:booking@lidanmusic.com" className="flex items-center gap-4 group mt-6">
+        <a href="mailto:lidanmusic.02@gmail.com" className="flex items-center gap-4 group mt-6">
           <svg className="size-6" fill="none" viewBox="0 0 24 24">
             <path
               d={svgPaths.p2bf8f980}
@@ -92,7 +92,7 @@ export function ContactInfo() {
             className="text-[16px] sm:text-[18px] text-white group-hover:text-[#ff003f] transition-colors duration-300 break-all"
             style={{ fontFamily: "var(--font-space)", fontWeight: 400 }}
           >
-            booking@lidanmusic.com
+            lidanmusic.02@gmail.com
           </span>
         </a>
 

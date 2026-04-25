@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import { sendEmail } from "@/lib/mail/sendEmail";
+import { createBookingRequest } from "@/lib/content-store";
 import type { MailDTO } from "@/lib/mail/types";
 
 export const runtime = "nodejs";
@@ -29,17 +29,19 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
   }
 
-  const result = await sendEmail({
-    fullName: fullName.trim(),
-    email: email.trim(),
-    subject: subject.trim(),
-    message: message.trim(),
-  });
+  try {
+    await createBookingRequest({
+      fullName: fullName.trim(),
+      email: email.trim(),
+      subject: subject.trim(),
+      message: message.trim(),
+    });
+  } catch (error) {
+    console.error("[contact-api] Failed to store booking request", error);
 
-  if (typeof result === "number") {
     return NextResponse.json(
-      { error: "Failed to send email", code: result },
-      { status: 502 }
+      { error: "Could not send inquiry right now. Please try again later." },
+      { status: 500 }
     );
   }
 
