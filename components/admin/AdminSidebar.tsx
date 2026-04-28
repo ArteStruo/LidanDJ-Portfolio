@@ -1,6 +1,6 @@
-import { CalendarDays, LogOut, Music2 } from "lucide-react";
+import { CalendarDays, LogOut, Mail, Music2 } from "lucide-react";
 
-type AdminSection = "music" | "events";
+type AdminSection = "music" | "events" | "bookings";
 
 type AdminSidebarProps = {
   section: AdminSection;
@@ -40,6 +40,19 @@ export function AdminSidebar({ section, onSectionChange, onLogout }: AdminSideba
         >
           <CalendarDays className="size-4" />
           <span className="font-medium">Events</span>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => onSectionChange("bookings")}
+          className={`w-full flex items-center gap-3 rounded-lg border px-4 py-3 text-left transition ${
+            section === "bookings"
+              ? "border-[rgba(255,0,63,0.45)] bg-[rgba(255,0,63,0.14)] text-[#ff4d79]"
+              : "border-transparent text-[#d1d5dc] hover:border-white/10 hover:bg-white/5"
+          }`}
+        >
+          <Mail className="size-4" />
+          <span className="font-medium">Bookings</span>
         </button>
       </div>
 

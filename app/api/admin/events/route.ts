@@ -44,7 +44,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  return NextResponse.json(readEventsData(), { status: 200 });
+  return NextResponse.json(await readEventsData(), { status: 200 });
 }
 
 export async function PUT(request: NextRequest) {

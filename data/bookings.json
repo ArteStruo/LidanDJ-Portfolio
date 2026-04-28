@@ -1,0 +1,12 @@
+{
+  "bookings": [
+    {
+      "id": "0779cbf8-fcf1-43b0-a8d9-f57af1193529",
+      "fullName": "Janul",
+      "email": "janulasamare@gmail.com",
+      "subject": "Booking Inquiry — private",
+      "message": "Event Type: private\n\nTEst",
+      "createdAt": "2026-04-22T18:58:46.567Z"
+    }
+  ]
+}
