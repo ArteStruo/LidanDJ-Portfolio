@@ -5,7 +5,8 @@ import { Toaster } from "sonner";
 import { AppShell } from "@/components/AppShell";
 import "./globals.css";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com"; // TODO: set NEXT_PUBLIC_SITE_URL in .env.local
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://example.com"; // TODO: set NEXT_PUBLIC_SITE_URL in .env.local
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,6 +26,11 @@ export const metadata: Metadata = {
   },
   description:
     "Progressive House DJ based in Sri Lanka. Discover mixes, event updates, gallery highlights, and booking details.",
+
+  verification: {
+    google: "ZSqlA0A0GIasceOVEfgCCzwx0EkA0G5Ri33abUhU-f4",
+  },
+
   openGraph: {
     type: "website",
     siteName: "DJ Lidan",
