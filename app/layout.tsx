@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
 const TITLE = "DJ Lidan — Progressive House DJ from Sri Lanka";
 const DESCRIPTION =
   "DJ Lidan is a Progressive House DJ based in Sri Lanka. Listen to exclusive mixes, catch upcoming event dates, browse the gallery, and book for your next event.";
-const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
+const OG_IMAGE = `${SITE_URL}/preview.png`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: "DJ Lidan — Progressive House",
-        type: "image/jpeg",
+        type: "image/png",
       },
     ],
   },
