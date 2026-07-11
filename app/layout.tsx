@@ -43,6 +43,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: SITE_URL,
   },
+  verification: {
+    google: "BLZMGZuK9dHBORuKIHARth1kagN3PmHPaK-rtnKXblU",
+  },
   openGraph: {
     type: "website",
     siteName: "DJ Lidan",
@@ -91,15 +94,6 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
     >
       <head>
-        <meta
-          name="google-site-verification"
-          content="ZSqlA0A0GIasceOVEfgCCzwx0EkA0G5Ri33abUhU-f4"
-        />
-        <meta
-          name="google-site-verification"
-          content="BLZMGZuK9dHBORuKIHARth1kagN3PmHPaK-rtnKXblU"
-        />
-
         {/* JSON-LD structured data — helps Google understand who/what this site is */}
         <script
           type="application/ld+json"
