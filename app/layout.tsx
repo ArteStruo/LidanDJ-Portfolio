@@ -20,6 +20,7 @@ const geistMono = Geist_Mono({
 const TITLE = "DJ Lidan — Progressive House DJ from Sri Lanka";
 const DESCRIPTION =
   "DJ Lidan is a Progressive House DJ based in Sri Lanka. Listen to exclusive mixes, catch upcoming event dates, browse the gallery, and book for your next event.";
+const OG_IMAGE = `${SITE_URL}/preview.png`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -55,12 +56,11 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        // Must be an ABSOLUTE URL for link previews to work reliably
-        // e.g. https://www.lidanmusic.com/og-image.png
-        url: `${SITE_URL}/og-image.png`,
+        url: OG_IMAGE,
         width: 1200,
         height: 630,
         alt: "DJ Lidan — Progressive House",
+        type: "image/png",
       },
     ],
   },
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: TITLE,
     description: DESCRIPTION,
-    images: [`${SITE_URL}/og-image.png`],
+    images: [OG_IMAGE],
   },
   robots: {
     index: true,
@@ -103,7 +103,7 @@ export default function RootLayout({
               "@type": "MusicGroup",
               name: "DJ Lidan",
               url: SITE_URL,
-              image: `${SITE_URL}/og-image.png`,
+              image: OG_IMAGE,
               genre: "Progressive House",
               description: DESCRIPTION,
               address: {
