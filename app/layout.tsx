@@ -5,7 +5,7 @@ import { Toaster } from "sonner";
 import { AppShell } from "@/components/AppShell";
 import "./globals.css";
 
-const SITE_URL = "https://lidan-dj-portfolio-gilt.vercel.app";
+const SITE_URL = "https://www.lidanmusic.com";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,24 +17,44 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const TITLE = "DJ Lidan — Progressive House DJ from Sri Lanka";
+const DESCRIPTION =
+  "DJ Lidan is a Progressive House DJ based in Sri Lanka. Listen to exclusive mixes, catch upcoming event dates, browse the gallery, and book for your next event.";
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "DJ Lidan — Progressive House",
+    default: TITLE,
     template: "%s | DJ Lidan",
   },
-  description:
-    "Progressive House DJ based in Sri Lanka. Discover mixes, event updates, gallery highlights, and booking details.",
+  description: DESCRIPTION,
+  keywords: [
+    "DJ Lidan",
+    "Progressive House DJ",
+    "Sri Lanka DJ",
+    "DJ booking Sri Lanka",
+    "electronic music Sri Lanka",
+    "DJ mixes",
+    "live DJ events",
+  ],
+  authors: [{ name: "DJ Lidan", url: SITE_URL }],
+  creator: "DJ Lidan",
+  publisher: "DJ Lidan",
+  alternates: {
+    canonical: SITE_URL,
+  },
   openGraph: {
     type: "website",
     siteName: "DJ Lidan",
-    title: "DJ Lidan — Progressive House",
-    description:
-      "Progressive House DJ based in Sri Lanka. Discover mixes, event updates, gallery highlights, and booking details.",
+    title: TITLE,
+    description: DESCRIPTION,
     url: SITE_URL,
+    locale: "en_US",
     images: [
       {
-        url: "/og-image.jpg",
+        // Must be an ABSOLUTE URL for link previews to work reliably
+        // e.g. https://www.lidanmusic.com/og-image.png
+        url: `${SITE_URL}/og-image.png`,
         width: 1200,
         height: 630,
         alt: "DJ Lidan — Progressive House",
@@ -43,10 +63,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "DJ Lidan — Progressive House",
-    description:
-      "Progressive House DJ based in Sri Lanka. Discover mixes, event updates, gallery highlights, and booking details.",
-    images: ["/og-image.jpg"],
+    title: TITLE,
+    description: DESCRIPTION,
+    images: [`${SITE_URL}/og-image.png`],
   },
   robots: {
     index: true,
@@ -75,6 +94,34 @@ export default function RootLayout({
         <meta
           name="google-site-verification"
           content="ZSqlA0A0GIasceOVEfgCCzwx0EkA0G5Ri33abUhU-f4"
+        />
+        <meta
+          name="google-site-verification"
+          content="BLZMGZuK9dHBORuKIHARth1kagN3PmHPaK-rtnKXblU"
+        />
+
+        {/* JSON-LD structured data — helps Google understand who/what this site is */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "MusicGroup",
+              name: "DJ Lidan",
+              url: SITE_URL,
+              image: `${SITE_URL}/og-image.png`,
+              genre: "Progressive House",
+              description: DESCRIPTION,
+              address: {
+                "@type": "PostalAddress",
+                addressCountry: "LK",
+              },
+              sameAs: [
+                "https://www.instagram.com/lidan.music/",
+                "https://soundcloud.com/nadil-nimnaka",
+              ],
+            }),
+          }}
         />
       </head>
       <body className="min-h-full flex flex-col bg-[#050505] text-white">
