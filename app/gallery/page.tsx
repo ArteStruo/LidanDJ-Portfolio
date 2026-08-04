@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     url: "/gallery",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/preview.png",
         width: 1200,
         height: 630,
         alt: "DJ Lidan Gallery",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title: "Gallery | DJ Lidan",
     description:
       "Browse highlights from DJ Lidan's live performances, behind-the-scenes moments, and visual snapshots from recent shows.",
-    images: ["/og-image.jpg"],
+    images: ["/preview.png"],
   },
 };
 

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     url: "/contact",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/preview.png",
         width: 1200,
         height: 630,
         alt: "Contact DJ Lidan",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title: "Contact & Bookings | DJ Lidan",
     description:
       "Book DJ Lidan for club nights, private events, and collaborations. Send your enquiry and get booking details directly.",
-    images: ["/og-image.jpg"],
+    images: ["/preview.png"],
   },
 };
 
