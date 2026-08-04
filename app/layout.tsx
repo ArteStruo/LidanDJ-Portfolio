@@ -192,8 +192,10 @@ export default function RootLayout({
                   ],
 
                   sameAs: [
-                    "https://www.instagram.com/lidan.music/",
+                    "https://www.instagram.com/lidan.music",
                     "https://soundcloud.com/nadil-nimnaka",
+                    "https://web.facebook.com/people/Nadil-Kottegoda/100026373379257/?locale=zh_CN",
+                    "https://www.tiktok.com/@lidan.music2?_r=1&_t=ZS-98bE6ofeKsX",
                   ],
                 },
 
