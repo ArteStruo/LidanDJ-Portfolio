@@ -6,32 +6,74 @@ import TransformationBridge from "@/components/about/TransformationBridge";
 import PhilosophySection from "@/components/about/PhilosophySection";
 import AboutClosingCTA from "@/components/about/AboutClosingCTA";
 
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.lidanmusic.com";
+
 export const metadata: Metadata = {
-  title: "About",
+  metadataBase: new URL(SITE_URL),
+
+  title:
+    "About DJ Lidan (Nadil Kottegoda) | Progressive House DJ & Electronic Music Producer",
+
   description:
-    "Learn the story behind DJ Lidan, his creative identity, and the philosophy shaping each Progressive House journey.",
+    "Learn more about DJ Lidan (Nadil Kottegoda), a Colombo-based Sri Lankan progressive house and underground electronic music producer and DJ. Discover his musical journey, artistic philosophy, influences, live performances, and passion for creating immersive electronic music experiences.",
+
+  keywords: [
+    "About DJ Lidan",
+    "Nadil Kottegoda",
+    "Nadil Nimnaka",
+    "DJ Lidan Biography",
+    "Sri Lankan DJ",
+    "Colombo DJ",
+    "Electronic Music Producer",
+    "Progressive House Producer",
+    "Progressive House DJ",
+    "Underground Electronic Music",
+    "Music Producer Sri Lanka",
+    "Electronic Artist",
+    "Hernan Cattaneo",
+    "Kyotto",
+  ],
+
   alternates: {
     canonical: "/about",
   },
+
   openGraph: {
-    title: "About | DJ Lidan",
+    type: "profile",
+    url: `${SITE_URL}/about`,
+    siteName: "DJ Lidan",
+
+    title:
+      "About DJ Lidan (Nadil Kottegoda) | Progressive House DJ & Electronic Music Producer",
+
     description:
-      "Learn the story behind DJ Lidan, his creative identity, and the philosophy shaping each Progressive House journey.",
-    url: "/about",
+      "Discover the story of DJ Lidan, his creative identity, musical influences, progressive house journey, and passion for immersive electronic music.",
+
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/preview.png",
         width: 1200,
         height: 630,
-        alt: "About DJ Lidan",
+        alt: "DJ Lidan - About",
       },
     ],
   },
+
   twitter: {
-    title: "About | DJ Lidan",
+    card: "summary_large_image",
+
+    title: "About DJ Lidan",
+
     description:
-      "Learn the story behind DJ Lidan, his creative identity, and the philosophy shaping each Progressive House journey.",
-    images: ["/og-image.jpg"],
+      "Discover the story behind Colombo-based progressive house DJ and electronic music producer DJ Lidan.",
+
+    images: ["/preview.png"],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
